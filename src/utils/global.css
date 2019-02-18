@@ -16,7 +16,6 @@ body.light {
 
 body.dark {
   -webkit-font-smoothing: antialiased;
-
   --bg: #282c35;
   --header: #ffffff;
   --textNormal: rgba(255, 255, 255, 0.88);
@@ -67,7 +66,7 @@ code[class*='language-'],
 pre[class*='language-'] {
   color: white;
   background: none;
-  font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
+  font-family: Dank Mono, Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
   font-feature-settings: normal;
   text-align: left;
   white-space: pre;
