@@ -7,28 +7,6 @@ const { supportedLanguages } = require('./i18n');
 exports.createPages = ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
 
-  // Oops
-  createRedirect({
-    fromPath: '/zh_TW/things-i-dont-know-as-of-2018/',
-    toPath: '/zh-hant/things-i-dont-know-as-of-2018/',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-  // Oops 2
-  createRedirect({
-    fromPath: '/not-everything-should-be-a-hook/',
-    toPath: '/why-isnt-x-a-hook/',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-  // Oops 3
-  createRedirect({
-    fromPath: '/making-setinterval-play-well-with-react-hooks/',
-    toPath: '/making-setinterval-declarative-with-react-hooks/',
-    isPermanent: true,
-    redirectInBrowser: true,
-  });
-
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post.js');
 
@@ -69,7 +47,6 @@ exports.createPages = ({ graphql, actions }) => {
         `
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors);
           reject(result.errors);
           return;
         }
@@ -105,25 +82,16 @@ exports.createPages = ({ graphql, actions }) => {
         const defaultLangPosts = posts.filter(
           ({ node }) => node.fields.langKey === 'en'
         );
-        _.each(defaultLangPosts, (post, index) => {
-          const previous =
-            index === defaultLangPosts.length - 1
-              ? null
-              : defaultLangPosts[index + 1].node;
-          const next = index === 0 ? null : defaultLangPosts[index - 1].node;
-
-          const translations =
-            translationsByDirectory[_.get(post, 'node.fields.directoryName')] ||
-            [];
-
+        _.each(defaultLangPosts, (post, index, arr) => {
+          const { directoryName, slug } = post.node.fields;
           createPage({
-            path: post.node.fields.slug,
+            path: slug,
             component: blogPost,
             context: {
-              slug: post.node.fields.slug,
-              previous,
-              next,
-              translations,
+              slug: slug,
+              previous: index === arr.length - 1 ? null : arr[index + 1].node,
+              next: index === 0 ? null : arr[index - 1].node,
+              translations: translationsByDirectory[directoryName] || [],
               translatedLinks: [],
             },
           });
@@ -132,13 +100,11 @@ exports.createPages = ({ graphql, actions }) => {
             ({ node }) => node.fields.langKey !== 'en'
           );
           _.each(otherLangPosts, post => {
-            const translations =
-              translationsByDirectory[_.get(post, 'node.fields.directoryName')];
-
+            const { langKey, maybeAbsoluteLinks, directoryName } = post.node.fields;
+            const translations =  translationsByDirectory[directoryName];
             // Record which links to internal posts have translated versions
             // into this language. We'll replace them before rendering HTML.
             let translatedLinks = [];
-            const { langKey, maybeAbsoluteLinks } = post.node.fields;
             maybeAbsoluteLinks.forEach(link => {
               if (allSlugs.has(link)) {
                 if (allSlugs.has('/' + langKey + link)) {
@@ -148,11 +114,11 @@ exports.createPages = ({ graphql, actions }) => {
                 } else if (link.startsWith('/' + langKey + '/')) {
                   console.log('-----------------');
                   console.error(
-                    `It looks like "${langKey}" translation of "${
-                      post.node.frontmatter.title
-                    }" ` +
-                      `is linking to a translated link: ${link}. Don't do this. Use the original link. ` +
-                      `The blog post renderer will automatically use a translation if it is available.`
+                    `
+                      It looks like "${langKey}" translation of "${post.node.frontmatter.title}" is linking to a translated link: ${link}. 
+                      Don't do this. Use the original link.
+                      The blog post renderer will automatically use a translation if it is available.
+                    `
                   );
                   console.log('-----------------');
                 }
@@ -177,27 +143,21 @@ exports.createPages = ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
-
-  if (_.get(node, 'internal.type') === `MarkdownRemark`) {
+  if (Reflect.get(node, 'internal').type === 'MarkdownRemark') {
     createNodeField({
       node,
       name: 'directoryName',
-      value: path.basename(path.dirname(_.get(node, 'fileAbsolutePath'))),
+      value: path.basename(path.dirname(Reflect.get(node, 'fileAbsolutePath'))),
     });
-
-    // Capture a list of what looks to be absolute internal links.
-    // We'll later remember which of them have translations,
-    // and use that to render localized internal links when available.
-
     // TODO: check against links with no trailing slashes
     // or that already link to translations.
     const markdown = node.internal.content;
     let maybeAbsoluteLinks = [];
-    let linkRe = /\]\((\/[^\)]+\/)\)/g;
-    let match = linkRe.exec(markdown);
+    let linkRegex = /\]\((\/[^\)]+\/)\)/g;
+    let match = linkRegex.exec(markdown);
     while (match != null) {
       maybeAbsoluteLinks.push(match[1]);
-      match = linkRe.exec(markdown);
+      match = linkRegex.exec(markdown);
     }
     createNodeField({
       node,
