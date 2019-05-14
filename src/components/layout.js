@@ -6,10 +6,10 @@ import { rhythm, scale } from '../utils/typography'
 
 const styles = {
   main: {
-    backgroundColor: 'lightskyblue'
+    backgroundColor: '#F6F8FA'
   },
   header: {
-    backgroundColor: 'crimson'
+    backgroundColor: '#23282D'
   },
   h1: {
     ...scale(1.5),
