@@ -3,7 +3,12 @@ module.exports = {
     title: 'Devoured',
     author: 'Dan Castrillo',
     description: 'A blog to document my personal endevors.',
-    siteUrl: 'https://littlecastrum.github.com/devoured.io/',
+    siteUrl: 'https://devoured.io',
+    social: {
+      twitter: 'twitter.com/littlecastrum',
+      linkedin: 'linkedin.com/in/littlecastrum/',
+      github: 'github.com/littlecastrum'
+    }
   },
   pathPrefix: '/',
   plugins: [

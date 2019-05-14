@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
@@ -21,12 +21,13 @@ const Post = (node) => {
     </div>
   )
 }
-class BlogIndex extends React.Component {
+
+class BlogIndex extends Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const social = get(this, 'props.data.site.siteMetadata.social')
     const siteDescription = get(this, 'props.data.site.siteMetadata.description')
     const posts = get(this, 'props.data.allMarkdownRemark.edges')
-
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -34,7 +35,7 @@ class BlogIndex extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Bio />
+        <Bio social={social}/>
         { posts.map(({ node }) => Post(node)) }
       </Layout>
     )
@@ -48,7 +49,12 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        description
+        description,
+        social {
+          twitter,
+          github,
+          linkedin
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

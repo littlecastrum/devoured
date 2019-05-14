@@ -19,7 +19,8 @@ const styles = {
   link: {
     boxShadow: 'none',
     textDecoration: 'none',
-    color: 'inherit',
+    color: 'aliceblue',
+    marginLeft: rhythm(2)
   },
   div: {
     marginLeft: 'auto',

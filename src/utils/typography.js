@@ -6,12 +6,8 @@ ElkGlen.overrideThemeStyles = () => ({
     boxShadow: 'none',
   },
   a: {
-    textShadow: 'none'
-  },
-  'h1 a': {
-    backgroundImage: 'none'
-  },
-  'h3 a': {
+    fontWeight: 'bold',
+    textShadow: 'none',
     backgroundImage: 'none'
   }
 })

@@ -1,37 +1,35 @@
 ---
-title: A roadmap to programming, part 1
-date: '2019-02-18'
-spoiler: How I learned something that would make me less poor.
+title: 'A roadmap to programming, part 2'
+description: On learning the ropes
+date: '2018-02-26T00:14:34.882Z'
+categories: []
+keywords: []
+slug: /@littlecastrum/a-roadmap-to-programming-part-2-d72af9e698ca
 ---
 
-I started around September 2015, things had already reach a turning point in Venezuelan politics and if you were not producing dollars you would find yourself pretty much incapable of going out and do anything for more than a couple days a month. This is not an exaggeration. At the time of this article the basic salary is around 5 dollars a month if you have an incredible job you make 300 tops.
-So, after a few days of analysis I sat down at my Intel Celeron Asus computer with barely 4GB of RAM and started investigating how could I become a programmer. I needed a job that I could do from Venezuela so that I could make enough money to leave it. Around that same time many MOOCs were getting lots of traction on the web, and programming courses were popping all over the internet. So I said why not, lets see how complicated this can be. Well its like getting into a food court it all looks good and they all sell fast shit but you always leave with something missing.
-Learning programming is hard, not because it requires you to be intelligent, but because it takes time and dedication. So if you are planning on getting on in the programming money wagon you better strap on for some time consuming mental exercising.
+!["A goal without a plan is just a wish" — Antoine de Saint-Exupery](https://cdn-images-1.medium.com/max/800/0*B6SYbRery3e8X271.)
+"A goal without a plan is just a wish" — Antoine de Saint-Exupery
 
----
+### On learning the ropes
 
-## So first things first, where do you start?
-It all will depend of your personality. But, if you can manage to stick to one course and do every single thing they say, I would recommend starting out with [freeCodeCamp](https://www.freecodecamp.org/). [Codecademy](http://codecademy.com/learn) is another very valid option but they ask for money for their more thorough training. [Bento](http://www.bento.io/) is another great website I found to start, they have very detailed information on the whole subject and a curriculum. Those would be my first recommendations if you are the consistent, fast learner that wants to get hands on experience.
-If you are a slow, intelectual learner that wants to sip everything around the subject of computation and get lost in its vast sea; then I would recommend [OSS University](https://ossu.firebaseapp.com/#/); it stands for Open Source Society University. They have an incredibly detailed curriculum for people that want to attain a Computer Science degree level education.
-For those like me that get bored easily but want to learn everything, I would recommend to take a look at this list: THE LIST. It is a compendium of books and tutorials on all things computational. It has resources for math, complexity analysis, every programming language that is popular enough to have open source books, and a lot more.
-So, to start, get used to what those courses provide you and you will be on the starting line. Yes, after all those hours you will dedicate to learning you will be at the starting line of this industry, not even internship worthy for the first few months. Why? Because you have to be able to jump in the production line ready to produce.
+If you have managed to learn any language whatsoever I congratulate you. You are now part of the most demanded field of employment in the world.
 
----
+I suppose you must be asking yourself once you managed to learn the basics of a programming language and you know what a text editor is, and how to make a webpage, what is the next step. Well, this is my recommendation, make projects, courses or get yourself hired.
 
-## Second things to learn then?
-After you can make a website with HTML, CSS and Javascript or you have managed to make a simple terminal console game with Ruby or even built a SPA with Ruby on Rails you will need to learn the ropes of working inside of the industry. So this is when you have to start thinking in things like workflows. To be productive in programming you need a fast workflow and that comes with knowing how to use the tools at your disposal.
-The tools that I use:
-- A text editor, I use SublimeText and Vim they are powerful and unobtrusive. Avoid the IDEs they lead to dependency.
-- I use Hyper terminal simulator because I'm a sucker for good design and pretty things but you can use anything.
-- Python, ruby, pearl, C, C++, Haskell, Go, Clojure & node are the languages that I have installed in my computer. You don't have to know them all or use them at all but there are great tools built in different languages and I like to have a swiss army knife for a computer.
-- Git, is indispensable and knowing source control will become one of the paramounts for you employability.
-- Google Chrome (It sounds silly but it has the largest suit of plugins available for development which will make you life easier. I use at least 10 extension for finding fonts, colors, HTML elements structure, etc).
-- Sketch is the best thing you could use for web design.
-- Subscribe to Medium if you haven't yet you can learn so much from other developers its absurd. I consider it one of my tools because I solve many questions with it.
-- For precise doubts you should use StackOverflow which is the programmers encyclopedia. If you ever post a question there (which should be incredibly difficult due to the amount of answers that already exist) there is a format for that. You should post the logs of all the information related to your problem and the code that you have written so far. There are guidelines in the internet anyway.
-- To learn new things I use Egghead, Pluralsight (that have free 3 months after opening a VisualStudio account) & FrontEnd Masters. So far the most efficient courses aggregators I have found on web development.
+Once you know the basics of a language you just know the common rules and basic communication skills. To learn how to make applications (where the real money is) you need to learn the ropes of making things. Like making anything in life you need to experiment how complicated it is. Every single time you built something new you gonna find yourself with the realization that you are ignorant of something new. Every problem have a different algorithm and everyone of them have their own level of complexity.
 
-So that's just for tooling and courses. If you are feeling it's too much that's because it is. At least at the beginning, you get used to learning fast because there is a pattern to how tools work in general so just dive right in and dedicate as much time as you can.
-This is my personal 3 part series on becoming a programmer. You can find a lot of this out there so I just wanted to provide my personal one. Hope you found it helpful.
+If you do a todo list, you need to understand how to filter, how to make a search bar, how to add dynamically to a page elements of a list, you need to decide if you are going to keep the records of all that have been executed or you going to vaporize that piece of information. If you are saving them are you going to keep a visual evidence? A todo list can start as a simple project and end up being a behemoth and the same applies to any issue.
 
-Have a good one.
+So you need to learn how to plan a project. The list of books I provided in the previous part of this series has many books on project management, planning and the language to use when you share the project with other people (it's usually UML).
+
+Making things will make you learn how big is the world of software development and how many things you have to learn. But to make it more accessible to you this is a run down of any normal project you will make with more than 2 people:
+
+*   A front end which will be comprised of the entire client logic. This can be as simple as a HTML with a script embedded and a CSS stylesheet or as complex as it commonly is now days with a filesystem comprised of a "public", a "dist" and a "src" folder at the root. The public folder is a standard for the static files, the dist is a standard for all the compiled files it stand for distribution (trying to imply that thats the code you will distribute to the users); the src folder stands for source, which have all the source code of the app. All this is managed by a bundler (In my case I use Webpack.js) and then a server reads from the dist folder and allows you local access to test the app. This is called a development environment.
+*   A backend have a similar structure and it handles all the communications between the front end which is the V in the MVC paradigm (you should learn what that means if you don't) and the database. The backend is the M in the MVC. It manages the API that has all the endpoints for the front to consume data. The most popular paradigm for the design is REST but Graphql is redefining that in most of the big applications.
+*   Then you have devOps. DevOps is the element of the project that allows a team of different individuals with any type of operative system in different parts of the globe to work in tandem. They usually set the repository for source control. You need to be able to share code with the team efficiently. If you haven't learn git and joined GitHub so far you should. They will add a CI (Continuous Integration) tool that will make builds of your application and check that it's still working every time you do a PR (Pull Request). Now days they also add an extra layer of functionality that is called container. A container encapsulates the application in it's own environment and recreates it in any computer with any operative system using virtual machines and prebundled packages that are needed for the application to run. For example if a new member joins the team and they don't have python installed but the app requires it, the container is run and it should check the system for python and if it's absent install it. I'm oversimplifying their work, but it's so vast the knowledge of devOps that this is just what I have had the chance to know of their work.
+
+This list could be longer but this are the most popular 3 things that make an app. There is also testing which I have not covered and the people in charge of making the design and architecture of the app. But we will left that for another post.
+
+Every time I sit down to write about this I realize how big this entire process is so my condolences in advance for those that are more confused after reading me. If that is not the case I'm glad that I could help.
+
+Have a good one, see ya another time.
