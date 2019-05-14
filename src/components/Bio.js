@@ -25,7 +25,13 @@ const styles = {
   },
   details: {
     textAlign: 'justify'
-  }
+  },
+  '@media screen and (max-width: 600px)': {
+    img: {
+      width: rhythm(2),
+      height: rhythm(2),
+    },
+  },
 }
 
 const Bio = ({ classes, social }) => {
