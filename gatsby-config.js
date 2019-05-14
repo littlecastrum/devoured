@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Devoured',
+    title: 'Lair',
     author: 'Dan Castrillo',
     description: 'A blog to document my personal endevors.',
-    siteUrl: 'https://devoured.io/',
+    siteUrl: 'https://littlecastrum.github.com/devoured.io/',
   },
-  pathPrefix: '/',
+  pathPrefix: '/lair',
   plugins: [
     `gatsby-plugin-jss`,
     {
@@ -49,8 +49,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Devoured`,
-        short_name: `dvourd`,
+        name: `Lair`,
+        short_name: `lair`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

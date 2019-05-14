@@ -32,7 +32,7 @@ const styles = {
 const Header = ({ classes }) => (
   <h1 className={classes.h1}>
     <Link className={classes.link} to={'/'}>
-      Devoured
+      Lair
     </Link>
   </h1>
 )
