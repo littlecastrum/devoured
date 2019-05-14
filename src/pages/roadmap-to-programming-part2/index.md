@@ -4,8 +4,6 @@ date: '2019-02-18'
 spoiler: How I learned something that would make me less poor.
 ---
 
-[**Part 2**](/roadmap-to-programming-part2/)
-
 I started around September 2015, things had already reach a turning point in Venezuelan politics and if you were not producing dollars you would find yourself pretty much incapable of going out and do anything for more than a couple days a month. This is not an exaggeration. At the time of this article the basic salary is around 5 dollars a month if you have an incredible job you make 300 tops.
 So, after a few days of analysis I sat down at my Intel Celeron Asus computer with barely 4GB of RAM and started investigating how could I become a programmer. I needed a job that I could do from Venezuela so that I could make enough money to leave it. Around that same time many MOOCs were getting lots of traction on the web, and programming courses were popping all over the internet. So I said why not, lets see how complicated this can be. Well its like getting into a food court it all looks good and they all sell fast shit but you always leave with something missing.
 Learning programming is hard, not because it requires you to be intelligent, but because it takes time and dedication. So if you are planning on getting on in the programming money wagon you better strap on for some time consuming mental exercising.
