@@ -1,10 +1,10 @@
 {
-  "name": "lair",
+  "name": "devoured",
   "description": "A personal blog to descript my journey",
   "version": "1.0.0",
   "author": "Dan Castrillo <littlecastrum@gmail.com>",
   "bugs": {
-    "url": "https://github.com/littlecastrum/lair/issues"
+    "url": "https://github.com/littlecastrum/devoured/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.0",
@@ -42,9 +42,9 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/littlecastrum/lair#readme",
+  "homepage": "https://github.com/littlecastrum/devoured#readme",
   "keywords": [
-    "lair",
+    "devoured",
     "gatsby",
     "blog"
   ],
@@ -52,7 +52,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/littlecastrum/lair.git"
+    "url": "git+https://github.com/littlecastrum/devoured.git"
   },
   "scripts": {
     "dev": "gatsby develop",
@@ -63,6 +63,7 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
-    "deploy:github": "npm run build && node ./scripts/deploy-github"
+    "deploy:github": "npm run build && node ./scripts/deploy-github",
+    "now-build": "gatsby build"
   }
 }
