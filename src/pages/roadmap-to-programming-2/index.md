@@ -1,10 +1,9 @@
 ---
-title: 'A roadmap to programming, part 2'
+title: 'A roadmap to programming (2)'
 description: On learning the ropes
 date: '2018-02-26T00:14:34.882Z'
 categories: []
 keywords: []
-slug: /@littlecastrum/a-roadmap-to-programming-part-2-d72af9e698ca
 ---
 
 !["A goal without a plan is just a wish" — Antoine de Saint-Exupery](https://cdn-images-1.medium.com/max/800/0*B6SYbRery3e8X271.)

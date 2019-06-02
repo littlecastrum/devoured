@@ -1,12 +1,11 @@
 ---
-title: 'A roadmap to programming, part 1'
+title: 'A roadmap to programming (1)'
 description: >-
   I started around September 2015, things had already reach a turning point in
   Venezuelan politics and if you were not producing dollars you…
 date: '2018-02-22T23:14:00.374Z'
 categories: []
 keywords: []
-slug: /@littlecastrum/a-roadmap-to-programming-part-1-68d41498dbb
 ---
 
 ![](https://cdn-images-1.medium.com/max/800/1*0Cj77ymWVh2x_mN7kMiykw.png)

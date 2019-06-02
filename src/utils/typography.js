@@ -1,3 +1,4 @@
+import './global.css'
 import Typography from 'typography'
 import ElkGlen from 'typography-theme-elk-glen'
 
