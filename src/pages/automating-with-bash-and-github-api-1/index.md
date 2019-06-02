@@ -111,4 +111,4 @@ name_new_function() {
 ```
 As you can see the logic is pretty much the same, but testing if the repo exists in github will take the rest of the knowledge that we need for this automation. We have 2 viable ways. We could use some other scripting language to simulate the process of accessing github and creating a repository or we could just make use of their very simple and well documented API which requires just one command to create a repo, list them and delete them in the future.
 
-I will let the explanation of the for the next post, have a good one.
+I will let the explanation of the **Github API** for the next post, have a good one.
