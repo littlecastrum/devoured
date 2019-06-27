@@ -24,6 +24,14 @@ const styles = {
     justifyContent: 'space-between',
     listStyle: 'none',
     padding: 0,
+  },
+  '@global': {
+    'a[target=_blank]:not(#bio)': {
+      color: 'slategrey',
+      '&:hover': {
+        textDecoration: 'underline'
+      }
+    }
   }
 }
 

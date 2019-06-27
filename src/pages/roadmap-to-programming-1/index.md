@@ -8,7 +8,7 @@ categories: []
 keywords: []
 ---
 
-![](https://cdn-images-1.medium.com/max/800/1*0Cj77ymWVh2x_mN7kMiykw.png)
+![Dragon Radar](https://cdn-images-1.medium.com/max/800/1*0Cj77ymWVh2x_mN7kMiykw.png)
 
 I started around September 2015, things had already reach a turning point in Venezuelan politics and if you were not producing dollars you would find yourself pretty much incapable of going out and do anything for more than a couple days a month. This is not an exaggeration. At the time of this article the basic salary is around 5 dollars a month if you have an incredible job you make 300 tops.
 
