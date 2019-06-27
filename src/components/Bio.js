@@ -39,14 +39,14 @@ const Bio = ({ classes, social }) => {
     <div className={classes.main}>
       <img src={profilePic} alt="Dan Castrillo" className={classes.img} />
       <p className={classes.details}>
-        I'm <a href="" target="_blank">Dan Castrillo</a> and this 
+        I'm <a href="/">Dan Castrillo</a> and this 
         is my personal blog Devoured. I'm a software developer from Caracas,
         VE. Currently based in Santiago, CL. <br/><br/> I work remotely
-        for <a href="https://admios.com" target="_blank">Admios</a>
+        for <a href="https://admios.com" target="_blank" id="bio">Admios</a>
         <br/>
         {
           Object.entries(social).map(([social, url]) => (
-            <a href={`https://${url}`} target="_blank" key={social}>
+            <a href={`https://${url}`} target="_blank" id="bio" key={social}>
               <FontAwesomeIcon icon={['fab', social]}/>{' '}
             </a>
           ))

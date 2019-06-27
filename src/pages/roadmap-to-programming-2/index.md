@@ -1,6 +1,7 @@
 ---
 title: 'A roadmap to programming (2)'
-description: On learning the ropes
+description: >-
+  If you have managed to learn any language whatsoever I congratulate you. You are now part of the most demanded field of employment in the world.
 date: '2018-02-26T00:14:34.882Z'
 categories: []
 keywords: []

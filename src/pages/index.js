@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 
 const Post = (node) => {
-  const title = get(node, 'frontmatter.title') || node.fields.slug
+  const { title, description, date } = get(node, 'frontmatter') || node.fields.slug
   return (
     <div key={node.fields.slug}>
       <h3 style={{ marginBottom: rhythm(1 / 4) }}>
@@ -16,8 +16,8 @@ const Post = (node) => {
           {title}
         </Link>
       </h3>
-      <small>{node.frontmatter.date}</small>
-      <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+      <small>{date}</small>
+      <p dangerouslySetInnerHTML={{ __html: description }} />
     </div>
   )
 }
@@ -66,7 +66,8 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
-            title
+            title,
+            description
           }
         }
       }

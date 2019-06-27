@@ -57,18 +57,18 @@ First we have the basic commands:
 - `mkdir`: creates a new directory in the given path
 - `touch`: creates a new file in the given path
 
-```
-mkdir Projects        // Will create a new Projects directory
-cd Projects           // Move into the directory
-touch test_file.sh    // Creates a new 'test_file.sh' file
+```bash
+mkdir Projects        # Will create a new Projects directory
+cd Projects           # Move into the directory
+touch test_file.sh    # Creates a new 'test_file.sh' file
 ```
 If we add some conditional expression we wil have the first part of our script.
 In bash a to test for `true` or `false` we use the brackets (`[]`) with flags inside
 if we pair that with the `if statement` we can build a our conditionals.
 
-```
-if [ ! -d <some_path> ]; then
-  mkdir <some_path>
+```bash
+if [ ! -d 'to/some/path' ]; then
+  mkdir 'to/some/path'
 fi
 ```
 **NOTE: The space inside the brackets is important**.
@@ -77,22 +77,23 @@ Let's upack what we did here. First we declared an `if` statement that will run 
 
 We can clean that up using another tool: `&&`. This will test if the left side is true it will run the right side code. Afterwards we can just change directories to the newly created one.
 
-```
-[ ! -d <some_path> ] && mkdir <some_path>
-cd <some_path>
+```bash
+[ ! -d 'to/some/path' ] && mkdir 'to/some/path'
+cd 'to/some/path'
 ```
 
-If we put this inside a function in out `.bash_profile`, `.bashrc` or `.zshrc` we can start calling it from everywhere.
+If we put this inside a function in out `.bash_profile`, `.bashrc` or `.zshrc` we can start calling it from everywhere (But with one caveat, we need to take the input to the function to be able to adapt to different paths). For using the arguments of the function `bash` uses the `$` sign and numbers starting from one (Meaning the first argument would be `$1`)
 
 ####.bashrc
-```
+```bash
 name_new_function() {
-  [ ! -d <some_path> ] && mkdir <some_path>
-  cd <some_path>
+  dir="/your/projects/folder/$1" # This is a variable declaration
+  [ ! -d $dir ] && mkdir $dir    # and you can access it like with
+  cd $dir                        # the $ sign prepended
 }
 ```
 ####on the terminal
-```
+```bash
 source .bashrc
 name_new_function test
 pwd 
@@ -100,15 +101,18 @@ pwd
 
 You will find yourself in the new directory. For the next step we already have the necessary tools
 
-```
+```bash
 name_new_function() {
-  [ ! -d <some_path> ] && mkdir <some_path>
-  cd <some_path>
-  if [ ! -d ".git" ]; then
-    // Test if the repo exists on github
+  dir="/your/projects/folder/$1"
+  [ ! -d $dir ] && mkdir $dir
+  cd $dir
+  if [ ! -d "$(pwd).git" ]; then
+    # Test if the repo exists on github
   fi
 }
+# We use pwd to make sure it tests the current directory
+# The pwd utility returns "Present Working Directory"
 ```
 As you can see the logic is pretty much the same, but testing if the repo exists in github will take the rest of the knowledge that we need for this automation. We have 2 viable ways. We could use some other scripting language to simulate the process of accessing github and creating a repository or we could just make use of their very simple and well documented API which requires just one command to create a repo, list them and delete them in the future.
 
-I will let the explanation of the **Github API** for the next post, have a good one.
+I will let the explanation of the **GitHub API** for the next post, have a good one.
