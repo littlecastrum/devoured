@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
@@ -12,9 +13,9 @@ const Post = (node) => {
   return (
     <div key={node.fields.slug}>
       <h3 style={{ marginBottom: rhythm(1 / 4) }}>
-        <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
+        <AniLink swipe direction="up" style={{ boxShadow: 'none' }} to={node.fields.slug}>
           {title}
-        </Link>
+        </AniLink>
       </h3>
       <small>{date}</small>
       <p dangerouslySetInnerHTML={{ __html: description }} />

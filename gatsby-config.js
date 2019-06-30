@@ -13,6 +13,7 @@ module.exports = {
   pathPrefix: '/',
   plugins: [
     `gatsby-plugin-jss`,
+    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

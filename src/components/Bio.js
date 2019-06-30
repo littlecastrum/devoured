@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-import profilePic from './profile-pic.jpg'
+import profilePic from '../assets/profile-pic.jpg'
 import { rhythm } from '../utils/typography'
 import { graphql } from 'gatsby';
 
