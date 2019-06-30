@@ -1,5 +1,5 @@
 ---
-title: 'Automating with bash and github API (1)'
+title: 'Automating with bash and GitHub API (1)'
 description: >-
   Most tasks can be automated, creating new projects should be one of them.
   Let's try using the Github API to make our life easier from the terminal

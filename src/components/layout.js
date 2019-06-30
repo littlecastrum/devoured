@@ -1,28 +1,16 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import injectSheet from "react-jss";
 
 import { rhythm, scale } from '../utils/typography'
+import Header from './Header'
 
 const styles = {
   main: {
-    backgroundColor: '#F6F8FA'
-  },
-  header: {
-    backgroundColor: '#23282D'
-  },
-  h1: {
-    ...scale(1.5),
-    marginBottom: rhythm(1.5),
-    marginTop: 0,
-  },
-  link: {
-    boxShadow: 'none',
-    textDecoration: 'none',
-    color: 'aliceblue',
-    marginLeft: rhythm(2)
+    backgroundColor: '#F6F8FA',
   },
   div: {
+    paddingTop: '15vh',
     marginLeft: 'auto',
     marginRight: 'auto',
     maxWidth: rhythm(24),
@@ -30,26 +18,28 @@ const styles = {
   }
 }
 
-const Header = ({ classes }) => (
-  <h1 className={classes.h1}>
-    <Link className={classes.link} to={'/'}>
-      Devoured
-    </Link>
-  </h1>
+const pageQuery = graphql`
+  query SiteTitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+const Layout = ({ children, location, classes }) => (
+  <StaticQuery
+    query={pageQuery}
+    render={data => (
+      <div className={classes.main}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <div className={classes.div}>
+          { children }
+        </div>
+      </div>
+    )}
+  />
 )
 
-const Template = ({ location, children, classes }) => {
-  const rootPath = `${__PATH_PREFIX__}/`
-  return (
-    <div className={classes.main}>
-      <div className={classes.header}>
-        <Header classes={classes} />
-      </div>
-      <div className={classes.div}>
-        { children }
-      </div>
-    </div>
-  )
-}
-
-export default injectSheet(styles)(Template);
+export default injectSheet(styles)(Layout);

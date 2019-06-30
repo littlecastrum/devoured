@@ -1,12 +1,16 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { Link,graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import injectSheet from "react-jss";
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap.css';
 
 import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import { rhythm, scale } from '../utils/typography'
+import arrowPic from '../assets/arrow.png'
 
 const styles = {
   p: {
@@ -31,27 +35,54 @@ const styles = {
       '&:hover': {
         textDecoration: 'underline'
       }
+    },
+    'body .tl-wrapper.tl-wrapper-status--entered': {
+      transform: 'none !important'
     }
   }
 }
 
-const navLink = (data, direction) => {
-  if (direction === 'prev') {
-    return (
-      <li>
-        <Link to={data.fields.slug} rel="prev">
-          ← {data.frontmatter.title}
-        </Link>
-      </li>
-    )
-  } else {
-    return (
-      <li>
-        <Link to={data.fields.slug} rel="next">
-          {data.frontmatter.title} →
-        </Link>
-      </li>
-    )
+const NavLink = ({data, direction}) => {
+  const position = direction === 'prev' ? 'right' : 'left'
+  const styles = {
+    position: 'fixed',
+    zIndex: 2,
+    opacity: 0.2,
+    [position]: '5vh',
+    bottom: '40vh',
+    display: 'block',
+    width: '70px',
+    height: '70px',
+    transform: position === 'right' ? 'rotate(180deg) translateY(0vh)' : null
+  }
+  const text = () => <span>{data.frontmatter.title}</span>;
+  return (
+    <Tooltip placement="bottom" overlay={text}>
+      <AniLink
+        swipe
+        direction={direction === 'prev' ? 'left' : 'right'}
+        to={data.fields.slug}  
+        rel={direction}
+        style={styles}
+      >
+        <img src={arrowPic} width="60%" height="100%"/>
+      </AniLink>
+    </Tooltip>
+  )
+}
+
+const checkContexts = ({ previous, next }) => {
+  const home = {
+    fields: {
+      slug: '/'
+    },
+    frontmatter: {
+      title: 'Home'
+    }
+  }
+  return {
+    previous: previous ? previous : home,
+    next: next ? next : home
   }
 }
 
@@ -62,8 +93,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(data, 'site.siteMetadata.title')
     const social = get(data, 'site.siteMetadata.social')
     const siteDescription = post.excerpt
-    const { previous, next } = pageContext
-
+    const { previous, next } = checkContexts(pageContext)
     return (
       <Layout location={location}>
         <Helmet
@@ -72,20 +102,14 @@ class BlogPostTemplate extends React.Component {
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1>{post.frontmatter.title}</h1>
-        <ul className={classes.ul}>
-          { previous && navLink(previous, 'prev') }
-          { next && navLink(next, 'next') }
-        </ul>
+        <NavLink data={next} direction={'next'} />
+        <NavLink data={previous} direction={'prev'} />
         <p className={classes.p}>
           {post.frontmatter.date}
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr className={classes.hr}/>
         <Bio social={social}/>
-        <ul className={classes.ul}>
-          { previous && navLink(previous, 'prev') }
-          { next && navLink(next, 'next') }
-        </ul>
       </Layout>
     )
   }
