@@ -40,9 +40,8 @@ const Bio = ({ classes, social }) => {
       <img src={profilePic} alt="Dan Castrillo" className={classes.img} />
       <p className={classes.details}>
         I'm <a href="/">Dan Castrillo</a> and this 
-        is my personal blog Devoured. I'm a software developer from Caracas,
-        VE. Currently based in Santiago, CL. <br/><br/> I work remotely
-        for <a href="https://admios.com" target="_blank" id="bio">Admios</a>
+        is my personal blog Devoured. I'm a Software Developer from Caracas,
+        VE. Currently based in Buenos Aires, AR.
         <br/>
         {
           Object.entries(social).map(([social, url]) => (
