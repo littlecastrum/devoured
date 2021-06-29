@@ -33,7 +33,7 @@
     "gatsby-transformer-sharp": "^2.1.1",
     "gsap": "^2.1.3",
     "lodash": "^4.17.21",
-    "prismjs": "^1.23.0",
+    "prismjs": "^1.24.0",
     "rc-tooltip": "^3.7.3",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
